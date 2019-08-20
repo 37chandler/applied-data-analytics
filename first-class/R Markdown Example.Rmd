@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 A quote:
 
-> R Markdown provides an authoring framework for data science.
+> R Markdown provides an authoring framework for data science. It's fantastic!
 
 To compile this, just click the `Knit` button in R Studio.
 You can actually see it rendered [here](https://github.com/37chandler/ada-first-class/blob/master/R%20Markdown%20Example.Rmd).
