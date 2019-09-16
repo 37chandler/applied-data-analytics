@@ -1,0 +1,25 @@
+/*
+CREATE TABLE
+  `umt-msba.wedge_example.daily_trans_20130714` AS
+SELECT
+  *
+FROM
+  `umt-msba.wedge_example.transactions_201307_small`
+WHERE
+  DATE(datetime) = "2013-07-14"
+*/ 
+
+
+SELECT DISTINCT DATE(datetime) as dt,
+       COUNT(*) as cnt
+FROM `umt-msba.wedge_example.transactions_201307_small` 
+group by dt
+order by dt 
+
+SELECT DISTINCT DATE(datetime) as dt,
+       COUNT(*) as cnt
+FROM `umt-msba.wedge_example.daily_trans_*` 
+group by dt
+order by dt 
+
+
