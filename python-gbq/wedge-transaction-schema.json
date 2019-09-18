@@ -1,0 +1,322 @@
+{
+  "creationTime": "1568214064490", 
+  "etag": "FbFqhliAEhYn5qAKUUo/MA==", 
+  "id": "umt-msba:wedge_example.transactions_201307_201309", 
+  "kind": "bigquery#table", 
+  "lastModifiedTime": "1568226630915", 
+  "location": "US", 
+  "numBytes": "0", 
+  "numLongTermBytes": "0", 
+  "numRows": "0", 
+  "schema": {
+    "fields": [
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "datetime", 
+        "type": "TIMESTAMP"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "register_no", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "emp_no", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "trans_no", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "upc", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "description", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "trans_type", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "trans_subtype", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "trans_status", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "department", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "quantity", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "Scale", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "cost", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "unitPrice", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "total", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "regPrice", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "altPrice", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "tax", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "taxexempt", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "foodstamp", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "wicable", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "discount", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "memDiscount", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "discountable", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "discounttype", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "voided", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "percentDiscount", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "ItemQtty", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "volDiscType", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "volume", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "VolSpecial", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "mixMatch", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "matched", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "memType", 
+        "type": "BOOLEAN"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "staff", 
+        "type": "BOOLEAN"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "numflag", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "itemstatus", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "tenderstatus", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "charflag", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "varflag", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "batchHeaderID", 
+        "type": "BOOLEAN"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "local", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "organic", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "display", 
+        "type": "BOOLEAN"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "receipt", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "card_no", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "store", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "branch", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "match_id", 
+        "type": "FLOAT"
+      }, 
+      {
+        "description": "", 
+        "mode": "NULLABLE", 
+        "name": "trans_id", 
+        "type": "FLOAT"
+      }
+    ]
+  }, 
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/umt-msba/datasets/wedge_example/tables/transactions_201307_201309", 
+  "tableReference": {
+    "datasetId": "wedge_example", 
+    "projectId": "umt-msba", 
+    "tableId": "transactions_201307_201309"
+  }, 
+  "type": "TABLE"
+}
