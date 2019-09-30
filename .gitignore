@@ -1,8 +1,9 @@
 transArchive_*.csv
-wedge-investigation/clean_transArchive_201307_201309.csv
+clean_transArchive_201307_201309.csv
 sql-and-python/*.db
 python-file-exploration/data_build.r
 python-file-exploration/list_of_tasks.jpg
+candidate_websites.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
