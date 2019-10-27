@@ -4,6 +4,17 @@ sql-and-python/*.db
 python-file-exploration/data_build.r
 python-file-exploration/list_of_tasks.jpg
 candidate_websites.db
+dplyr/*.html
+.Rhistory
+ggplot/shopper_dept_segment.txt
+wedge-solution/owner_sample.txt
+wedge-solution/wedge_reporting.db
+apis/Twitter/twitter_config.py
+apis/Twitter/*_followers.txt
+
+apis/Wikipedia/wikipedia_famous.txt
+
+web-scraping/craigslist/20191007_car_scrape.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
