@@ -9,9 +9,13 @@ library(scales)
 # Let's hook up to our Wedge reporting DB
 # and get the owner table
 
-path.to.db <- paste0("C:\\Users\\jchan\\Dropbox\\",
-                     "Teaching\\2019\\ADA\\",
-                     "applied-data-analytics\\wedge-solution\\")
+#path.to.db <- paste0("C:\\Users\\jchan\\Dropbox\\",
+#                     "Teaching\\2019\\ADA\\",
+#                     "applied-data-analytics\\wedge-solution\\")
+
+path.to.db <- paste0("C:\\Users\\jmeese\\Desktop\\ADA\\",
+                                    "applied-data-analytics\\wedge-solution\\")
+
 
 # Creating the connection to the DB. Similar to 
 # a cursor. 
@@ -141,11 +145,11 @@ holdout.estimates <- holdout.estimates %>%
   
 ggplot(holdout.estimates,
        aes(x=sales_2015,y=pred_2015)) + 
-  geom_point(shape=1) + 
+  geom_point(shape=1,alpha=0.2) + 
   geom_abline(slope=1,intercept=0) +
   theme_minimal() + 
-  scale_x_continuous(label=dollar) + 
-  scale_y_continuous(label=dollar) + 
+  scale_x_log10(label=dollar) + 
+  scale_y_log10(label=dollar) + 
   stat_smooth(method="lm",se=F,col="red") + 
   stat_smooth(se=F) + 
   labs(x="Actual 2015 Spend",
