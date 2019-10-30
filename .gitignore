@@ -8,7 +8,7 @@ dplyr/*.html
 .Rhistory
 ggplot/shopper_dept_segment.txt
 wedge-solution/owner_sample.txt
-wedge-solution/wedge_reporting.db
+wedge_reporting.db
 apis/Twitter/twitter_config.py
 apis/Twitter/*_followers.txt
 

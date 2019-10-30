@@ -2,13 +2,19 @@ library(tidyverse)
 library(DBI)
 
 con <- dbConnect(RSQLite::SQLite(),
-                 dbname=paste0("wedge_reporting.db"))
+                 dbname="wedge_reporting.db")
 
 # Listing the tables
 dbListTables(con)
 
 # And creating connections to the two tables. 
 owner.ym <- tbl(con, "owner_year_month")
+
+owner.ym %>% 
+  group_by(card_no,year) %>% 
+  summarize(months=n_distinct(month)) %>% 
+  ungroup
+
 
 for.plot <- owner.ym %>% 
   group_by(card_no,year) %>% 
