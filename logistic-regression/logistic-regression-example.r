@@ -19,6 +19,8 @@ client.count <- d %>%
 d <- d %>% 
   filter(client %in% client.count$client)
 
+Hmisc::describe(d)
+
 
 glm.1 <- glm(rebooked ~ mean_leading_days + client,d,family="binomial")
 glm.1.1 <- glm(rebooked ~ mean_leading_days * client,d,family="binomial")

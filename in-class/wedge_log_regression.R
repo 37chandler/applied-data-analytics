@@ -9,12 +9,12 @@ library(scales)
 # Let's hook up to our Wedge reporting DB
 # and get the owner table
 
-#path.to.db <- paste0("C:\\Users\\jchan\\Dropbox\\",
-#                     "Teaching\\2019\\ADA\\",
-#                     "applied-data-analytics\\wedge-solution\\")
-
-path.to.db <- paste0("C:\\Users\\jmeese\\Desktop\\ADA\\",
+path.to.db <- paste0("C:\\Users\\jchan\\Dropbox\\",
+                     "Teaching\\2019\\ADA\\",
                      "applied-data-analytics\\wedge-solution\\")
+
+#path.to.db <- paste0("C:\\Users\\jmeese\\Desktop\\ADA\\",
+#                     "applied-data-analytics\\wedge-solution\\")
 
 
 # Creating the connection to the DB. Similar to 
@@ -75,6 +75,38 @@ md <- md %>%
 summary(glm(nov_shopped ~ oct_spend, data=md))
 summary(glm(nov_shopped ~ I(oct_spend/100), data=md))
 
+# Let's add a couple of other columns. 
+md <- md %>% 
+  left_join(owner.ym %>% 
+  filter(card_no != "3",
+         year==2015,
+         month==9) %>%
+  select(card_no,sales) %>% 
+  rename(sep_spend = sales) %>% 
+  collect,
+  by="card_no")
 
+md <- md %>% 
+  left_join(owner.ym %>% 
+              filter(card_no != "3",
+                     year==2014,
+                     month==11) %>%
+              select(card_no,sales) %>% 
+              rename(prev_nov_spend = sales) %>% 
+              collect,
+            by="card_no")
 
+summary(glm(nov_shopped ~ I(oct_spend/100) + 
+              I(sep_spend/100) + 
+              I(prev_nov_spend/100), 
+            data=md))
 
+md %>% 
+  select(contains("spend")) %>% 
+  pairs
+
+summary(glm(nov_shopped ~ I(oct_spend/100) + 
+              I(sep_spend/100) + 
+              I(prev_nov_spend/100), 
+            data=md),
+        subset=mean(oct_spend,sep_spend,prev_nov_spend) < 10000)
