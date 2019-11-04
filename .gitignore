@@ -11,9 +11,8 @@ wedge-solution/owner_sample.txt
 wedge_reporting.db
 apis/Twitter/twitter_config.py
 apis/Twitter/*_followers.txt
-
+cong_cand_anova_chi.r
 apis/Wikipedia/wikipedia_famous.txt
-
 web-scraping/craigslist/20191007_car_scrape.txt
 
 # Byte-compiled / optimized / DLL files
