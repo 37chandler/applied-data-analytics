@@ -20,7 +20,7 @@ You've seen a bit about hypothesis testing, where we run a
 test to see if two means or proportions are different. 
 We've also spent time on regression, a technique for 
 modeling the relationship between explanatory (also called
-"independent"") variables and a resonse (also called "dependent")
+"independent"") variables and a response (also called "dependent")
 variable. Now we'll cover a couple of special cases that 
 come up often enough that we have their own techniques. 
 
