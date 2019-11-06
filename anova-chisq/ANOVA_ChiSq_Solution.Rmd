@@ -1,26 +1,21 @@
 ---
 title: "ANOVA and Chi-Square Tests"
 author: "John Chandler"
-output:
-  pdf_document: default
-  html_document: default
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-#library(tidyverse)
-library(ggplot2)
-library(dplyr)
-library(scales)
-library(readr)
+library(tidyverse)
+
 ```
 
 You've seen a bit about hypothesis testing, where we run a 
 test to see if two means or proportions are different. 
 We've also spent time on regression, a technique for 
 modeling the relationship between explanatory (also called
-"independent"") variables and a response (also called "dependent")
+"independent"") variables and a resonse (also called "dependent")
 variable. Now we'll cover a couple of special cases that 
 come up often enough that we have their own techniques. 
 
@@ -34,12 +29,8 @@ it all. We'll read in the data and do some exploratory
 data analysis. 
 
 ``` {r data_input, message=F}
-data_dir <- paste0("C:\\Users\\jchan\\Dropbox\\Teaching",
-                   "\\2019\\ADA\\applied-data-analytics",
-                   "\\anova-chisq\\")
-
-data_file <- "survey_data.txt"
-d <- read_tsv(paste0(data_dir,data_file))
+data.file <- "survey_data.txt"
+d <- read_tsv(paste0(data.file))
 
 # It's nice to have these levels in a sensible order.
 d <- d %>% 
@@ -120,8 +111,54 @@ following charts:
 
 ``` {r plotting_solution} 
 
-## Your code here. 
+# Age by engagement.
+ggplot(d,
+       aes(x=age)) + 
+  geom_density() + 
+  facet_wrap(~engagement) + 
+  theme_bw() + 
+  labs(title="Age by Engagement")
 
+# Engagement by Region
+par(las=1) # for good region alignment
+mosaicplot(table(d$engagement,d$region))
+
+# Progressivism by Region
+ggplot(d,
+       aes(x=progressivism)) + 
+  geom_density() + 
+  facet_wrap(~engagement) + 
+  theme_bw() + 
+  labs(title="Progressivism by Engagement")
+
+# An alternative
+ggplot(d,
+       aes(x=engagement, y=progressivism)) + 
+  geom_violin(draw_quantiles=c(0.25,0.5,0.75)) + 
+  theme_bw() + 
+  labs(title="Progressivism by Engagement")
+
+
+# Age and progressivism
+ggplot(d,
+       aes(x=age,y=progressivism)) + 
+  geom_point(alpha=0.2) + 
+  theme_bw() + 
+  stat_smooth(method="gam") + 
+  labs(x="Age",y="Progressivism Score",
+       title="")
+# Wow, no real relationship
+
+ggplot(d,
+       aes(x=age,y=progressivism,
+           group=region,col=region)) + 
+  geom_point(alpha=0.2) + 
+  theme_bw() + 
+  stat_smooth(method="gam",se=F) + 
+  labs(x="Age",y="Progressivism Score",
+       title="")
+# W WA Non-Metro actually shows a bit of a
+# trend. That's kind of interesting. 
 
 ```
 
@@ -264,11 +301,15 @@ results <- data.frame(num_samples=1000,
 # build the vectors we'll sample from. 
 e.wa <- d %>% 
   filter(region=="E WA Non Metro") %>%
-  pull(progressivism) 
+  select(progressivism) %>%
+  unlist %>% # this trick gets us out of tibbles 
+  as.numeric # there might be an easier way.
 
 w.wa <- d %>% 
   filter(region=="W WA Metro") %>%
-  pull(progressivism) 
+  select(progressivism) %>%
+  unlist %>% 
+  as.numeric
 
 # Loop over all the experiments we want to do.
 for (i in 1:nrow(results)) {
@@ -306,11 +347,9 @@ for (i in 1:nrow(results)) {
   
 }
 
-knitr::kable(results)
+results
 
 ```
-
-
 So, what do we notice from the results table? As the sample size
 goes up, the mean of the differences stays about the same. In other 
 words, it looks like the mean of 1000 differences doesn't vary too
@@ -322,7 +361,7 @@ _is_ more progressive than E WA Non Metro. You could make this case
 based on political voting patterns, or philosophically, by deciding
 that, for the purposes of our experiments, the survey results _are_
 the population of interest.) Notice that by $n=128$, we're not
-ever getting the "wrong" answer. 
+ever getting the wrong answer. 
 
 Let's try to figure out what's going on with those standard deviations.
 First, we can plot them to get a better look. 
@@ -354,8 +393,7 @@ ggplot(results,
 ```
 
 The straight line here is no accident. The 
-[Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) 
-tells us that, for a random variable $X$ with mean $\mu$ and standard
+[Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) tells us that, for a random variable $X$ with mean $\mu$ and standard
 deviation $\sigma$, the sampling distribution of the mean is the
 normal distribution. Not only that, but we know the _parameters for the distribution of the mean, $\bar{X}$: 
 $N(\mu, \frac{\sigma}{\sqrt{n}})$. 
@@ -528,6 +566,8 @@ finish with our final model.
 reg.lm.4 <- lm(progressivism ~ region + engagement + age, 
                data=d)
 anova(reg.lm.4)
+
+summary(reg.lm.4)
 ```
 We could use `coef` or `summary` to extract the coefficients, but
 we've seen the essence of ANOVA. Region matters a lot, even 
@@ -767,14 +807,14 @@ rather than end, of an association analysis. One natural
 next step is to look at the residuals from our model. These
 are the departures from expectation on a cell-by-cell basis:
 ```{r chi_resids}
-knitr::kable(residuals(chisq.test(x=d$engagement,y=d$region)),
-             caption="Residuals for full Region/Engagement Test")
+residuals(chisq.test(x=d$engagement,y=d$region))
 ```
 
 We look for values that are large in absolute value. For instance, 
 Thurston shows many more highly-engaged members than we'd expect 
 (and fewer who are not engaged). Western Washington Metro is actually
 lower on highly-engaged than we'd expect, as is Eastern Washington Non Metro. 
+
 
 # Appendix: Full Data Description
 A financial institution in Washington has become concerned that their current membership base is not well-aligned with their corporate values. Through that concern they realized that don't actually understand their membership's values very well. They surveyed 2,421 members to shed light on the issue. 
