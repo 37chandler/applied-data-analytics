@@ -32,3 +32,17 @@ Timestamp	What's your family or last name?	Distance from where you were born to 
 10/31/2018 14:05:33	Yang	5693	5693	5	No	Yes	2
 10/31/2018 14:06:48	Layton	128	147	7	Yes	Yes	3
 10/31/2018 14:19:04	Spoja	4671	4	5	No	No	5
+11/12/2019 21:50:35	Schwartz	1726.2	249.6	9	No	No	1
+11/13/2019 4:18:47	Thompson	2358	2787	6	No	Yes	2
+11/13/2019 9:24:37	Bankston	1273	45	6	Yes	Yes	2
+11/13/2019 10:57:34	Barr	1982	5	7	No	No	1
+11/13/2019 14:50:06	Gabrielsen	276	276	6	No	Yes	3
+11/13/2019 16:01:33	Campestre	8402	2322	6	No	No	1
+11/13/2019 16:02:42	Leonard	1.1	5	10	Yes	Yes	3
+11/13/2019 16:03:33	Martin	1500	60	5	Yes	Yes	2
+11/13/2019 16:03:36	Cerkovnik	272	272	5	No	Yes	2
+11/13/2019 16:03:48	McNea	345	345	6	No	Yes	1
+11/13/2019 16:04:03	Runkel	5	56.4	5	Yes	Yes	2
+11/13/2019 16:04:18	Toepke	543	840	6	No	Yes	1
+11/13/2019 16:04:47	Stokes	166	216	9	No	No	3
+11/13/2019 16:05:42	Bernhard	4505	4514	5	No	No	2
