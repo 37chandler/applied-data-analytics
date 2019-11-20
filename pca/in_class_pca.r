@@ -27,13 +27,13 @@ ggplot(total.spend,
 quantile(total.spend$spend,
          prob=0:10/10)
   
-# Let's cutoff at $25,000
-mean(total.spend$spend < 25000)
+# Let's cutoff at $15,000
+mean(total.spend$spend < 15000)
 
 d <- d %>% 
   filter(owner %in% 
            (total.spend %>% 
-           filter(spend < 25000) %>% 
+           filter(spend < 15000) %>% 
            pull(owner)))
 
 pca1 <- prcomp(d[,-1])
@@ -68,14 +68,14 @@ if (ncol(d) > 31){
 sort(pca1$rotation[,1],decreasing = T)[1:max.col]
 sort(pca1$rotation[,1],decreasing = F)[1:max.col]
 
-sort(pca1$rotation[,2],decreasing = T)[1:max.col/2]
-sort(pca1$rotation[,2],decreasing = F)[1:max.col/2]
+sort(pca1$rotation[,2],decreasing = T)[1:(max.col/2)]
+sort(pca1$rotation[,2],decreasing = F)[1:(max.col/2)]
 
-sort(pca1$rotation[,3],decreasing = T)[1:max.col/2]
-sort(pca1$rotation[,3],decreasing = F)[1:max.col/2]
+sort(pca1$rotation[,3],decreasing = T)[1:(max.col/2)]
+sort(pca1$rotation[,3],decreasing = F)[1:(max.col/2)]
 
-sort(pca1$rotation[,4],decreasing = T)[1:max.col/2]
-sort(pca1$rotation[,4],decreasing = F)[1:max.col/2]
+sort(pca1$rotation[,4],decreasing = T)[1:(max.col/2)]
+sort(pca1$rotation[,4],decreasing = F)[1:(max.col/2)]
 
 # Let's build derived variables from these components. 
 
